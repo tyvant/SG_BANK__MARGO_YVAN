@@ -32,7 +32,7 @@ public class DemoConsole extends Console{
         System.out.println("value inserted by user  ->  " + option);
     }
 
-    void launchBankApp() {
+    public void launchBankApp() {
         welcomeMessage();
         printMenu(startChoice);
         printChoice(BigDecimal.ONE);

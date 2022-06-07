@@ -73,8 +73,6 @@ public class Account {
         return statements;
     }
 
-
-
     public String toString() {
          return "Account with " + balance.getCurrentAmount() +" euros ";
     }

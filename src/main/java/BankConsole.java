@@ -15,7 +15,7 @@ public class BankConsole extends Console {
         this.scanner = scanner;
     }
 
-      void launchBankApp() {
+      public void launchBankApp() {
         welcomeMessage();
         printMenu(startChoice);
         int option;

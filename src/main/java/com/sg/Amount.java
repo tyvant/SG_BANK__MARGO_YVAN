@@ -14,14 +14,12 @@ public class Amount {
     public Amount(BigDecimal amount) {
         this.amount = amount;
     }
-    public BigDecimal add(BigDecimal amount) {
+    public void add(BigDecimal amount) {
          this.amount = this.amount.add(amount);
-        return this.amount;
     }
 
-    public BigDecimal subtract(BigDecimal amount) {
+    public void subtract(BigDecimal amount) {
          this.amount = this.amount.subtract(amount);
-        return this.amount;
     }
 
     public BigDecimal  getCurrentAmount() {

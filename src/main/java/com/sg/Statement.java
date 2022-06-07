@@ -48,11 +48,14 @@ public class Statement {
         Statement statement = (Statement) o;
         return amount.equals(statement.amount)
                 && balance.equals(statement.balance)
+                && date.getDayOfMonth() == statement.getDate().getDayOfMonth()
+                && date.getYear() == statement.date.getYear()
+                && date.getMonthValue() == statement.date.getMonthValue()
                 && operation.equals(statement.operation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(operation, amount, balance);
+        return Objects.hash(operation, amount, balance,date);
     }
 }

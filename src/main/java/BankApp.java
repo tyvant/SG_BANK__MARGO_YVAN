@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class BankApp {
     public static void main(String[] args) {
 
-        BankConsole console = new BankConsole(new Scanner(System.in));
-        DemoConsole demoConsole = new DemoConsole();
+        Console console = new BankConsole(new Scanner(System.in));
+        Console demoConsole = new DemoConsole();
 
         demoConsole.launchBankApp();
 

@@ -39,4 +39,6 @@ public abstract class Console {
     protected abstract void withrawal();
     protected abstract void configAccount();
     protected abstract void deposit();
+
+    public abstract void launchBankApp();
 }
