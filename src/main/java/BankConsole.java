@@ -1,5 +1,5 @@
 import com.sg.Account;
-import exceptions.SGBANKExceptions;
+import com.sg.exceptions.SGBANKExceptions;
 
 import java.math.BigDecimal;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package exceptions;
+package com.sg.exceptions;
 
 /** Represents the functional Exception.
  * @author Yvan Tchatat

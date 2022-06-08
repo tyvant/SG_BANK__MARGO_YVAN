@@ -1,6 +1,6 @@
 import com.sg.Account;
 import com.sg.ErrorMessages;
-import exceptions.SGBANKExceptions;
+import com.sg.exceptions.SGBANKExceptions;
 import org.junit.Before;
 import org.junit.Test;
 

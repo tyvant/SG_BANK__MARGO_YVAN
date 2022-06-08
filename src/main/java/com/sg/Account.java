@@ -1,6 +1,6 @@
 package com.sg;
 
-import exceptions.SGBANKExceptions;
+import com.sg.exceptions.SGBANKExceptions;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -35,13 +35,7 @@ public class Account {
         if (amount.compareTo(BigDecimal.ZERO) < 0)
             throw new SGBANKExceptions(ErrorMessages.AMOUNT_OF_DEPOSIT_OR_WITHDRAWAL_IS_NEGATIVE);
 
-        this.balance.add(amount);
-        Statement st = new Statement();
-        st.setDate(LocalDate.now());
-        st.setOperation(DEPOSIT);
-        st.setAmount(amount);
-        st.setBalance(this.balance.getCurrentAmount());
-        statements.add(st);
+        updateStatement(amount, DEPOSIT);
 
         return this.balance.getCurrentAmount();
     }
@@ -52,14 +46,26 @@ public class Account {
 
         if(amount.compareTo(balance.getCurrentAmount()) > 0 )
             throw new SGBANKExceptions(ErrorMessages.WITHDRAWAL_AMOUNT_BIGGER_THAN_BALANCE);
-        this.balance.subtract(amount);
+        updateStatement(amount, WITHDRAWAL);
+        return this.balance.getCurrentAmount();
+    }
+
+    private void updateStatement(BigDecimal amount,OperationType type) {
         Statement st = new Statement();
         st.setDate(LocalDate.now());
-        st.setOperation(WITHDRAWAL);
         st.setAmount(amount);
+         switch (type) {
+             case WITHDRAWAL:
+                 this.balance.subtract(amount);
+                 st.setOperation(type);
+                 break;
+             case DEPOSIT:
+                 this.balance.add(amount);
+                 st.setOperation(type);
+                 break;
+         }
         st.setBalance(this.balance.getCurrentAmount());
         statements.add(st);
-        return this.balance.getCurrentAmount();
     }
 
     // Method permit to get history of operations
